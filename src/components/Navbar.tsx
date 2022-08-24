@@ -47,8 +47,12 @@ function Navbar() {
           <li className="border-b">KONTAKT</li>
 
           <div className="flex flex-col">
-            <button>elo</button>
-            <button>elo</button>
+            <button className=" p-3 border bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary-light)] text-white rounded-md">
+              elo
+            </button>
+            <button className=" p-3 border bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary-light)] text-white rounded-md">
+              elo
+            </button>
           </div>
           <div className="flex pt-4 gap-2">
             <FaFacebook className="icon" />

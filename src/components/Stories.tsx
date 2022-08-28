@@ -14,7 +14,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 function Stories() {
   return (
-    <div className="max-width-[1240px] mx-auto py-16 px-4 absolute bg-white">
+    <div className="max-width-[1240px] mx-auto py-16 px-4 relative bg-white">
       <div className="flex flex-col items-center">
         <h1>Odkryj historie</h1>
         <h3 className="py-3">Efekty mojej pracy</h3>

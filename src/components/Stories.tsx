@@ -11,6 +11,7 @@ import Maserati35 from "../assets/Maserati35.jpg";
 import Maserati6 from "../assets/Maserati6.jpg";
 import Maserati31 from "../assets/Maserati31.jpg";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function Stories() {
   return (
@@ -20,15 +21,17 @@ function Stories() {
         <h3 className="py-3">Efekty mojej pracy</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 py-2 gap-2">
           <div className="relative col-span-2">
-            <img
-              className="w-full h-full object-cover hover:bg-"
-              src={Maserati29}
-            />
-            <div className="hover:bg-gray-900/30 flex  absolute top-0 left-0 w-full h-full">
-              <p className=" gap-3  left-4 bottom-4 text-2xl font-extralight text-white absolute">
-                sportowa fura
-              </p>
-            </div>
+            <Link to="/esa">
+              <img
+                className="w-full h-full object-cover hover:bg-"
+                src={Maserati29}
+              />
+              <div className="hover:bg-gray-900/30 flex  absolute top-0 left-0 w-full h-full">
+                <p className=" gap-3  left-4 bottom-4 text-2xl font-extralight text-white absolute">
+                  sportowa fura
+                </p>
+              </div>
+            </Link>
           </div>
           <div className="col-span-2 grid grid-cols-2 gap-2 py-2 md:py-0 px">
             <div className="relative">

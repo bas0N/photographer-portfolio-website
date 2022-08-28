@@ -3,20 +3,31 @@ import { AiOutlineClose } from "react-icons/ai";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [showNav, setShowNav] = useState(false);
   const [showLogo, setShowLogo] = useState(true);
+  const location = useLocation();
 
   const handleNav = () => {
     setShowNav(!showNav);
     setShowLogo(!showLogo);
   };
+  console.log(location);
   return (
     <div className="flex justify-between ">
-      <div className="flex flex-row justify-between w-full items-center px-4 h-20 absolute z-10 text-white">
+      <div
+        className={`flex flex-row justify-between w-full items-center px-4 h-20 absolute  ${
+          location.pathname === "/"
+            ? "text-white absolute z-10"
+            : "text-black relative"
+        }`}
+      >
         <div>
-          <h1 className={showLogo ? "px-4 " : "hidden"}>NOWAK.</h1>
+          <Link to="/">
+            <h1 className={showLogo ? "px-4 " : "hidden"}>NOWAK.</h1>
+          </Link>
         </div>
         <ul className=" hidden md:flex ">
           <li>GŁÓWNA</li>

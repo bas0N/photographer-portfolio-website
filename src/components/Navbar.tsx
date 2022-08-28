@@ -30,9 +30,18 @@ function Navbar() {
           </Link>
         </div>
         <ul className=" hidden md:flex ">
-          <li>GŁÓWNA</li>
-          <li>HISTORIE</li>
-          <li>KONTAKT</li>
+          <Link to="/">
+            <li>GŁÓWNA</li>
+          </Link>
+          <Link to="/stories">
+            <li>HISTORIE</li>
+          </Link>
+          <Link to="/contact">
+            <li>KONTAKT</li>
+          </Link>
+          <Link to="/about">
+            <li>O MNIE</li>
+          </Link>
         </ul>
         <div onClick={handleNav} className="md:hidden z-10">
           {showNav ? (

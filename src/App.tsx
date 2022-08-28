@@ -6,6 +6,10 @@ import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Story from "./components/Story";
+import Contact from "./Pages/Contact";
+import AboutMe from "./Pages/AboutMe";
+import NotFound from "./Pages/NotFound";
+import StoriesPortfolio from "./Pages/StoriesPortfolio";
 
 function App() {
   return (
@@ -25,7 +29,11 @@ function App() {
                 </>
               }
             />
-            <Route path="/esa" element={<Story />} />
+            <Route path="/stories" element={<StoriesPortfolio />} />
+            <Route path="/stories/:id" element={<Story />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<AboutMe />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
 
           <Footer />

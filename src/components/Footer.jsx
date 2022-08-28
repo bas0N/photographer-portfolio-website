@@ -1,6 +1,8 @@
 import React from "react";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <div className="w-full bg-black relative text-white">
@@ -29,10 +31,18 @@ function Footer() {
           <div className=" hidden md:flex flex-col">
             <h2 className="ml-3">Sprawdź</h2>
             <ul className="space-y-0 space-x-0 mr-4">
-              <li className="space-y-0">Główna</li>
-              <li className="space-y-0">Historie</li>
-              <li>Kontakt</li>
-              <li>O Mnie</li>
+              <Link to="/">
+                <li>GŁÓWNA</li>
+              </Link>
+              <Link to="/stories">
+                <li>HISTORIE</li>
+              </Link>
+              <Link to="/contact">
+                <li>KONTAKT</li>
+              </Link>
+              <Link to="/about">
+                <li>O MNIE</li>
+              </Link>
             </ul>
           </div>
         </div>

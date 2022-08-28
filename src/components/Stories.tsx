@@ -21,7 +21,7 @@ function Stories() {
         <h3 className="py-3">Efekty mojej pracy</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 py-2 gap-2">
           <div className="relative col-span-2">
-            <Link to="/esa">
+            <Link to="/stories/ess">
               <img
                 className="w-full h-full object-cover hover:bg-"
                 src={Maserati29}

@@ -43,11 +43,11 @@ function Navbar() {
             <li>O MNIE</li>
           </Link>
         </ul>
-        <div onClick={handleNav} className="md:hidden z-10">
+        <div onClick={handleNav} className="md:hidden ">
           {showNav ? (
-            <AiOutlineClose size={20} />
+            <AiOutlineClose className="text-2xl text-black" size={20} />
           ) : (
-            <HiOutlineMenuAlt4 size={20} />
+            <HiOutlineMenuAlt4 className="text-2xl text-black" size={20} />
           )}
         </div>
       </div>
@@ -62,21 +62,26 @@ function Navbar() {
       >
         <ul>
           <h1>MENU</h1>
-          <li className="border-b">GŁÓWNA</li>
-          <li className="border-b">HISTORIE</li>
-          <li className="border-b">KONTAKT</li>
+          <Link to="/">
+            <li className="border-b">GŁÓWNA</li>
+          </Link>
+          <Link to="/stories">
+            <li className="border-b">HISTORIE</li>
+          </Link>
+          <Link to="/contact">
+            <li className="border-b">KONTAKT</li>
+          </Link>
+          <Link to="/about">
+            <li className="border-b">O MNIE</li>
+          </Link>
 
-          <div className="flex flex-col">
-            <button className=" p-3 border bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary-light)] text-white rounded-md">
-              elo
-            </button>
-            <button className=" p-3 border bg-gradient-to-r from-[var(--primary-dark)] to-[var(--primary-light)] text-white rounded-md">
-              elo
-            </button>
-          </div>
-          <div className="flex pt-4 gap-2">
-            <FaFacebook className="icon" />
-            <FaInstagram className="icon" />
+          <div className="flex mt-4 gap-2">
+            <Link to="/about">
+              <FaFacebook className="text-2xl text-black" />
+            </Link>
+            <Link to="/about">
+              <FaInstagram className="text-2xl text-black" />
+            </Link>
           </div>
         </ul>
       </div>

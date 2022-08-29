@@ -23,11 +23,4 @@
   h3 {
     @apply text-xl;
   }
-
-  .icon {
-    @apply text-2xl cursor-pointer;
-  }
-  .icon {
-    color: var(--primary-dark);
-  }
 }

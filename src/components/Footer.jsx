@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="w-screen bg-black relative text-white">
+    <div className=" bg-black relative text-white">
       <div className="max-w-[1240px] flex flex-col mx-auto py-8">
         <div className="flex flex-col md:flex-row mx-auto md:mx-0 justify-around">
           <div className="flex flex-col">
@@ -17,7 +17,7 @@ function Footer() {
                 src="https://cms-assets.tutsplus.com/uploads/users/810/profiles/19338/profileImage/profile-square-extra-small.png"
               />
               <div className=" flex flex-col px-6">
-                <h3 className="font-bold">Krzysztof Młynarz</h3>
+                <h3 className="font-bold">Krzysztof Nowak</h3>
                 <p>Fotograf, montażysta</p>
                 <div className="flex mt-3">
                   <FaFacebook className="w-7 h-7 mr-4" />
@@ -37,7 +37,7 @@ function Footer() {
               <Link to="/stories">
                 <li>HISTORIE</li>
               </Link>
-              <Link to="/contact">
+              <Link to="/offer">
                 <li>KONTAKT</li>
               </Link>
               <Link to="/about">

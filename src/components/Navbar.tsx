@@ -16,7 +16,7 @@ function Navbar() {
   };
   console.log(location);
   return (
-    <div className="flex justify-between ">
+    <div className="w-screen flex justify-between ">
       <div
         className={`flex flex-row justify-between w-full items-center px-4 h-20 absolute  ${
           location.pathname === "/"

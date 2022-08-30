@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between w-screen">
           <Navbar />
 
           <Routes>

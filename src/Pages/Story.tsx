@@ -6,7 +6,7 @@ import Maserati26 from "../assets/Maserati26.jpg";
 import Maserati29 from "../assets/Maserati29.jpg";
 import Maserati31 from "../assets/Maserati31.jpg";
 import Maserati35 from "../assets/Maserati35.jpg";
-import { createClient } from "contentful";
+import { contentfulClient } from "../config/contentful";
 import { useNavigate, useParams } from "react-router-dom";
 import Stories from "../components/Stories";
 function Story() {
@@ -20,14 +20,10 @@ function Story() {
   const [title, setTitle] = useState("blank");
   const [photos, setPhotos] = useState([{ fields: { file: { url: "" } } }]);
 
-  const client = createClient({
-    space: process.env.REACT_APP_NOWAK_CONTENTFUL_SPACE_ID!,
-    accessToken: process.env.REACT_APP_NOWAK_CONTENTFUL_DELIVERY!,
-  });
   useEffect(() => {
     const execute = async () => {
       try {
-        const res: any = await client.getEntry(id || "null");
+        const res: any = await contentfulClient.getEntry(id || "null");
         //setStory(res);
 
         setDescription(res.fields.description);

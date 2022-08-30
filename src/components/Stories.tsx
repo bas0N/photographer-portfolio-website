@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BoraBora from "../assets/borabora.jpg";
 import BoraBora2 from "../assets/borabora2.jpg";
 import KeyWest from "../assets/keywest.jpg";
@@ -11,9 +11,29 @@ import Maserati35 from "../assets/Maserati35.jpg";
 import Maserati6 from "../assets/Maserati6.jpg";
 import Maserati31 from "../assets/Maserati31.jpg";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { contentfulClient } from "../config/contentful";
 
 function Stories() {
+  const navigate = useNavigate();
+  const [videoUrl, setVideoUrl] = useState("null");
+  useEffect(() => {
+    const execute = async () => {
+      try {
+        const res: any = await contentfulClient.getEntries({
+          content_type: "mainStories",
+        });
+        //setStory(res);
+
+        console.log(res);
+      } catch (err) {
+        navigate("/not-found");
+        console.log(err);
+      }
+      // const res = await client.getEntries({ content_type: "story" });
+    };
+    execute();
+  }, []);
   return (
     <div className="max-width-[1240px] mx-auto py-16 px-4 relative bg-white">
       <div className="flex flex-col items-center">

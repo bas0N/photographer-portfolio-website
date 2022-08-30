@@ -34,7 +34,7 @@ function StoriesPortfolio() {
     execute();
   }, []);
   return (
-    <div className=" h-screen max-w-[1440px] mx-auto w-full mb-8">
+    <div className="  max-w-[1440px] mx-auto w-full mb-8">
       <div className="flex flex-col ">
         <div className="ml-8  ">
           <h1 className="text-7xl md:text-8xl font-extralight">HISTORIE</h1>

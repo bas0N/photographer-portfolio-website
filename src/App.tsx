@@ -5,7 +5,7 @@ import beachVid from "./assets/beachVid.mp4";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Story from "./components/Story";
+import Story from "./Pages/Story";
 import Contact from "./Pages/Contact";
 import AboutMe from "./Pages/AboutMe";
 import NotFound from "./Pages/NotFound";

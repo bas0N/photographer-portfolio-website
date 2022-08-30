@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import party from "../assets/18trimed.mov";
 import { contentfulClient } from "../config/contentful";
 import { useNavigate } from "react-router-dom";
 function Hero() {
   const navigate = useNavigate();
+  const [videoUrl, setVideoUrl] = useState("null");
   useEffect(() => {
     const execute = async () => {
       try {
@@ -14,6 +14,8 @@ function Hero() {
         //setStory(res);
 
         console.log(res);
+        setVideoUrl(res.items[0].fields.moview.fields.file.url);
+        console.log(videoUrl);
       } catch (err) {
         navigate("/not-found");
         console.log(err);
@@ -26,7 +28,7 @@ function Hero() {
     <div className="w-full h-screen relative">
       <video
         className="w-full h-full object-cover fixed z-0"
-        src={party}
+        src={videoUrl}
         autoPlay
         loop
         muted

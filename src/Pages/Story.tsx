@@ -7,60 +7,52 @@ import Maserati29 from "../assets/Maserati29.jpg";
 import Maserati31 from "../assets/Maserati31.jpg";
 import Maserati35 from "../assets/Maserati35.jpg";
 import { createClient } from "contentful";
+import { useNavigate, useParams } from "react-router-dom";
+import Stories from "../components/Stories";
 function Story() {
-  const [story, setStory] = useState({});
+  const { id } = useParams();
+
+  const navigate = useNavigate();
+
+  console.log(id);
+  const [story, setStory] = useState();
+  const [description, setDescription] = useState("blank");
+  const [title, setTitle] = useState("blank");
+  const [photos, setPhotos] = useState([{ fields: { file: { url: "" } } }]);
+
   const client = createClient({
     space: process.env.REACT_APP_NOWAK_CONTENTFUL_SPACE_ID!,
     accessToken: process.env.REACT_APP_NOWAK_CONTENTFUL_DELIVERY!,
   });
   useEffect(() => {
     const execute = async () => {
-      const res = await client.getEntries({ content_type: "story" });
-      console.log(res);
+      try {
+        const res: any = await client.getEntry(id || "null");
+        //setStory(res);
+
+        setDescription(res.fields.description);
+        setTitle(res.fields.title);
+        setPhotos(res.fields.photos);
+
+        console.log(res.fields);
+      } catch (err) {
+        navigate("/not-found");
+        console.log(err);
+      }
+      // const res = await client.getEntries({ content_type: "story" });
     };
     execute();
-  });
-  // useEffect(() => {
-  //   const execute = async () => {
-  //     const result = await fetch(
-  //       `https://cdn.contentful.com/spaces/${process.env.REACT_APP_NOWAK_CONTENTFUL_SPACE_ID}/entries`,
-  //       {
-  //         method: "get",
-  //         mode: "cors",
-  //         headers: {
-  //           Authorization: `Bearer ${process.env.REACT_APP_NOWAK_CONTENTFUL_DELIVERY}`,
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
-  //     console.log(result);
-  //     setStory(result);
-  //   };
-  //   execute();
-  // }, []);
+  }, []);
+
   return (
     <div className="max-w-[1240px] mx-auto pt-16 text-black ">
       <div className="flex flex-col items-center">
-        <h1>18-stka Zuzi</h1>
-        <p className="text-center pt-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <h1>{title}</h1>
+        <p className="text-center pt-4">{description}</p>
         <div className="grid grid-cols-2 md:grid-cols-3 mx-4 mt-16 mb-8 gap-2">
-          <img src={Maserati29} />
-          <img src={Maserati6} />
-          <img src={Maserati31} />
-          <img src={Maserati35} />
-          <img src={Maserati5} />
-
-          <img src={Maserati11} />
-
-          <img src={Maserati26} />
+          {photos.map((photo) => (
+            <img src={photo.fields.file.url} />
+          ))}
         </div>
       </div>
     </div>
